@@ -641,7 +641,8 @@ def show_movie_shelf(
             with col:
                 st.image(
                     movie_poster(movie, api_key),
-                    use_container_width=True,
+                    width="stretch",
+
                 )
 
                 st.markdown(
@@ -670,7 +671,8 @@ def show_movie_shelf(
                 if st.button(
                     "More info",
                     key=f"{key_prefix}_{int(movie['movieId'])}",
-                    use_container_width=True,
+                    width="stretch"
+,
                 ):
                     open_movie(movie["movieId"])
                     st.rerun()
@@ -692,7 +694,8 @@ def render_movie_details(movie, username):
     with left:
         st.image(
             movie_poster(movie, api_key),
-            use_container_width=True,
+            width="stretch"
+,
         )
 
     with right:
@@ -726,7 +729,8 @@ def render_movie_details(movie, username):
             if st.button(
                 "✓ Remove from My List",
                 key="detail_remove",
-                use_container_width=True,
+                width="stretch"
+,
             ):
                 remove_from_watchlist(
                     username,
@@ -738,7 +742,8 @@ def render_movie_details(movie, username):
             if st.button(
                 "+ Add to My List",
                 key="detail_add",
-                use_container_width=True,
+                width="stretch"
+,
             ):
                 add_to_watchlist(
                     username,
@@ -791,7 +796,7 @@ def render_movie_details(movie, username):
 
         submitted = st.form_submit_button(
             "Submit review",
-            use_container_width=True,
+            width="stretch",
         )
 
         if submitted:
@@ -1046,7 +1051,7 @@ if st.session_state.navigation == "Home":
     with detail_col:
         if st.button(
             "▶ Explore This Movie",
-            use_container_width=True,
+            width="stretch",
         ):
             open_movie(selected_movie["movieId"])
             st.rerun()
@@ -1058,7 +1063,7 @@ if st.session_state.navigation == "Home":
             if st.button(
                 "✓ Remove from My List",
                 key="home_remove",
-                use_container_width=True,
+                width="stretch",
             ):
                 remove_from_watchlist(
                     username,
@@ -1069,7 +1074,7 @@ if st.session_state.navigation == "Home":
             if st.button(
                 "+ Add to My List",
                 key="home_add",
-                use_container_width=True,
+                width="stretch",
             ):
                 add_to_watchlist(
                     username,
@@ -1224,7 +1229,7 @@ elif st.session_state.navigation == "Discover":
     if discover_title != "Choose a movie...":
         if st.button(
             "Open Selected Movie",
-            use_container_width=True,
+            width="stretch",
         ):
             movie_id = int(
                 movies.loc[
@@ -1330,7 +1335,7 @@ elif st.session_state.navigation == "Discover":
                 with col:
                     st.image(
                         movie_poster(movie, api_key),
-                        use_container_width=True,
+                        width="stretch",
                     )
 
                     st.markdown(
@@ -1349,7 +1354,7 @@ elif st.session_state.navigation == "Discover":
                     if st.button(
                         "More info",
                         key=f"discover_detail_{int(movie['movieId'])}",
-                        use_container_width=True,
+                        width="stretch",
                     ):
                         open_movie(movie["movieId"])
                         st.rerun()
@@ -1393,7 +1398,7 @@ elif st.session_state.navigation == "My List":
                 with col:
                     st.image(
                         movie_poster(movie, api_key),
-                        use_container_width=True,
+                        width="stretch",
                     )
 
                     st.markdown(
@@ -1407,7 +1412,7 @@ elif st.session_state.navigation == "My List":
                     if st.button(
                         "More info",
                         key=f"saved_detail_{int(movie['movieId'])}",
-                        use_container_width=True,
+                        width="stretch",
                     ):
                         open_movie(movie["movieId"])
                         st.rerun()
@@ -1415,7 +1420,7 @@ elif st.session_state.navigation == "My List":
                     if st.button(
                         "✕ Remove",
                         key=f"saved_remove_{int(movie['movieId'])}",
-                        use_container_width=True,
+                        width="stretch",
                     ):
                         remove_from_watchlist(
                             username,
